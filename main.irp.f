@@ -10,12 +10,12 @@ program adress
 
     allocate(ideter(natom))
 
-    ideter(1)=1
-    ideter(2)=1
-    ideter(3)=1
-    ideter(4)=2
-    ideter(5)=2
-    ideter(6)=2
+    ideter=1
+    do i=natom/2+1,natom
+    ideter(i)=2
+    enddo
+!C  ideter(natom)=1
+!C  ideter(1)=2
 
     call adr(ideter,add)
     write(6,*)(ideter(i),i=1,natom)

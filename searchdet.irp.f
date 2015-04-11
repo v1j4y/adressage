@@ -20,13 +20,18 @@ subroutine searchdet(det,add)
 
         const=1
         i+=1
-        write(6,16)a,a,i-2
+!C      write(6,16)a,a,i-2
         do while(popcnt(a).ne.nbeta .or. const==1)
             a+=1
             const=0
         enddo
     enddo
-    if(a.eq.det)add=i-1
+    if(a.eq.det)then
+    add=i-1
+    print *,'this i=',i
+    endif
+    print *,"leaving at the end",a,i,popcnt(a)
+    write(6,14)a,a
 
 
 10  FORMAT(B64,I8,F8.2)
