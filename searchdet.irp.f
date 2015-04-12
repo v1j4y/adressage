@@ -28,10 +28,7 @@ subroutine searchdet(det,add)
     enddo
     if(a.eq.det)then
     add=i-1
-    print *,'this i=',i
     endif
-    print *,"leaving at the end",a,i,popcnt(a)
-    write(6,14)a,a
 
 
 10  FORMAT(B64,I8,F8.2)
