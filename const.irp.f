@@ -12,12 +12,12 @@ BEGIN_PROVIDER  [integer(kind=selected_int_kind(16)),nt1     ]
 !C  nt1=ceiling(gamma(real(natom+1,16))/(gamma(real(natom-ntrou+1,16))*gamma(real(ntrou+1,16))),selected_int_kind(16))
     nt1=   nint(gamma(real(natom+1,16))/(gamma(real(natom-ntrou+1,16))*gamma(real(ntrou+1,16))),selected_int_kind(16))
 !C fix for parity
-    if(mod(natom-ntrou+isz,2).eq.0)then
+    if(mod(natom-ntrou+2*isz,2).eq.0)then
         nalpha=(natom-ntrou+2*isz)/2
-        nbeta=(natom-ntrou-2*isz)/2
+        nbeta=(natom -ntrou-2*isz)/2
     else
-        nalpha=(natom-ntrou+2*isz-0)/2
-        nbeta=(natom-ntrou-2*isz-0)/2
+        nalpha=(natom-ntrou+2*isz+1)/2
+        nbeta=(natom -ntrou-2*isz-1)/2
     endif
     nt2=   nint(gamma(real(natom-ntrou+1,16))/((gamma(real(nalpha+1,16))*gamma(real(nbeta+1,16)))),selected_int_kind(16))
     rank=nt1*nt2

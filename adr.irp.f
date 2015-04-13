@@ -8,12 +8,14 @@ subroutine adr(ideter,add)
     END_DOC
     integer,INTENT(INOUT)::ideter(natom)
     integer,INTENT(INOUT)::add
-    integer::det,i
+    integer::det,i,deth
 
     det=0
-    call conv(ideter,det)
+    deth=0
+    call conv(ideter,det,deth)
     write(6,14)det,det
-    call searchdet(det,add)
+    write(6,14)deth,deth
+    call searchdet(det,deth,add)
     print *,add
 
 
