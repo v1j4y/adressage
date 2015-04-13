@@ -4,7 +4,7 @@ BEGIN_PROVIDER[integer, natom]
     BEGIN_DOC
     ! provide all the constants
     END_DOC
-    natom = 26
+    natom =  6
     ntrou = 0
-    isz = 0
+    isz = 1
 END_PROVIDER
