@@ -11,6 +11,7 @@ program adress
     allocate(ideter(natom))
 
     ideter=1
+    ideter(natom-2)=2
     ideter(natom-1)=2
     ideter(natom)=2
 !C  do i=natom/2+1,natom
