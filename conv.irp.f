@@ -9,6 +9,7 @@ subroutine conv(ideter,det,deth)
     integer,INTENT(INOUT)::deth
     integer::i
     det=0
+    deth=0
     do i=1,natom
         if(ideter(i).eq.2 .and. ideter(i).ne.3)then
             det=IBSET(det,i-1)
@@ -16,4 +17,6 @@ subroutine conv(ideter,det,deth)
             deth=IBSET(deth,i-1)
         endif
     enddo
+            print *,'det=',det
+            print *,'deth=',deth
 end

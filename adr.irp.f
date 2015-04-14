@@ -8,15 +8,33 @@ subroutine adr(ideter,add)
     END_DOC
     integer,INTENT(INOUT)::ideter(natom)
     integer,INTENT(INOUT)::add
-    integer::det,i,deth
+    integer::det,i,deth,addh,detnew,count
 
     det=0
+    detnew=0
     deth=0
+    count=0
     call conv(ideter,det,deth)
+    print *,'---'
+    Do i=0,natom-1
+        if(BTEST(deth,i))then
+            count=count+1
+        endif
+        if(BTEST(det,i))then
+            detnew=IBSET(detnew,i-count)
+        endif
+    enddo
+    det=detnew
     write(6,14)det,det
     write(6,14)deth,deth
-    call searchdet(det,deth,add)
-    print *,add
+    print *,'---'
+    call searchdet(det,add,deth,addh)
+    print *,'---'
+    write(6,16)det,det,add
+    write(6,16)deth,deth,addh
+    print *,'---',add
+    add = (nt2-add+1) + (addh-1)*(nt2)
+    print *,add,addh
 
 
 10  FORMAT(B64,I8,F8.2)

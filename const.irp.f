@@ -15,11 +15,17 @@ BEGIN_PROVIDER  [integer(kind=selected_int_kind(16)),nt1     ]
     if(mod(natom-ntrou+2*isz,2).eq.0)then
         nalpha=(natom-ntrou+2*isz)/2
         nbeta=(natom -ntrou-2*isz)/2
+        if(((natom-ntrou)/2).eq.isz)then
+            nbeta=0
+        endif
     else
         nalpha=(natom-ntrou+2*isz+1)/2
         nbeta=(natom -ntrou-2*isz-1)/2
+        if(((natom-ntrou+1)/2).eq.isz)then
+            nbeta=0
+        endif
     endif
     nt2=   nint(gamma(real(natom-ntrou+1,16))/((gamma(real(nalpha+1,16))*gamma(real(nbeta+1,16)))),selected_int_kind(16))
     rank=nt1*nt2
-    print *,'nt1=',nt1,'nt2=',nt2,'natoms=',natom ,'ntrou=',ntrou,'nalpha=',nalpha,'nbeta=',nbeta,'isz=',isz
+    print *,'nt1=',nt1,'nt2=',nt2,'natoms=',natom ,'ntrou=',ntrou,'nalpha=',nalpha,'nbeta=',nbeta,'isz=',isz,'rank=',rank
 END_PROVIDER
