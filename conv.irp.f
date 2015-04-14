@@ -11,9 +11,9 @@ subroutine conv(ideter,det,deth)
     det=0
     deth=0
     do i=1,natom
-        if(ideter(i).eq.2 .and. ideter(i).ne.3)then
+        if(ideter(natom-i+1).eq.2 .and. ideter(natom-i+1).ne.3)then
             det=IBSET(det,i-1)
-        elseif(ideter(i).eq.3)then
+        elseif(ideter(natom-i+1).eq.3)then
             deth=IBSET(deth,i-1)
         endif
     enddo

@@ -11,11 +11,12 @@ program adress
     allocate(ideter(natom))
 
     ideter=1
-    ideter(1)=2
-    ideter(2)=1
-    ideter(natom-2)=1
-    ideter(natom-1)=1
-    ideter(natom)=3
+    ideter(1)=1
+    ideter(2)=3
+    ideter(3)=3
+    ideter(4)=1
+    ideter(5)=1
+    ideter(6)=2
 !C  do i=natom/2+1,natom
 !C  ideter(i)=2
 !C  enddo

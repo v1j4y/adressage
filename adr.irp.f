@@ -19,9 +19,11 @@ subroutine adr(ideter,add)
     Do i=0,natom-1
         if(BTEST(deth,i))then
             count=count+1
+            print *,count,i
         endif
         if(BTEST(det,i))then
             detnew=IBSET(detnew,i-count)
+            print *,'-',count,i
         endif
     enddo
     det=detnew
@@ -33,8 +35,8 @@ subroutine adr(ideter,add)
     write(6,16)det,det,add
     write(6,16)deth,deth,addh
     print *,'---',add
-    add = (nt2-add+1) + (addh-1)*(nt2)
-    print *,add,addh
+    add = add + (nt1-addh)*(nt2)
+    print *,add,(nt1-addh+1)
 
 
 10  FORMAT(B64,I8,F8.2)
