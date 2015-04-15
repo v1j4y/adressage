@@ -12,11 +12,11 @@ program adress
 
     ideter=1
     ideter(1)=1
-    ideter(2)=3
-    ideter(3)=3
-    ideter(4)=1
-    ideter(5)=1
-    ideter(6)=2
+    ideter(2)=2
+    ideter(3)=1
+    ideter(4)=3
+    ideter(5)=3
+    ideter(6)=3
 !C  do i=natom/2+1,natom
 !C  ideter(i)=2
 !C  enddo
@@ -26,6 +26,11 @@ program adress
     call adr(ideter,add)
     write(6,*)(ideter(i),i=1,natom)
     write(6,*)'Adress = ',add
+    write(6,*)'done'
+    ideter=0
+    call getdet(add,ideter)
+    write(6,*)'Adress = ',add
+    write(6,*)(ideter(i),i=1,natom)
 
 
 

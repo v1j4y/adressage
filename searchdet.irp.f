@@ -15,7 +15,7 @@ subroutine searchdet(det,add,deth,addh)
     add=0
     print *,"enter"
     const=0
-    
+
     If(ntrou.ge.1)then
 
             const=0
@@ -28,7 +28,7 @@ subroutine searchdet(det,add,deth,addh)
                     print *,"leave",addh,ah
                     EXIT
                 endif
-        
+
                 const=1
                 i+=1
                 do while(popcnt(a).ne.ntrou .or. const==1)

@@ -34,7 +34,8 @@ subroutine adr(ideter,add)
     print *,'---'
     write(6,16)det,det,add
     write(6,16)deth,deth,addh
-    print *,'---',add
+    print *,'---'
+    print *,add,(nt1-addh)*nt2
     add = add + (nt1-addh)*(nt2)
     print *,add,(nt1-addh+1)
 
