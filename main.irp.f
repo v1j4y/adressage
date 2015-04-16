@@ -15,9 +15,9 @@ program adress
     do i=natom/2+2,natom
     ideter(i)=2
     enddo
-    ideter(1)=3
+    ideter(1)=2
     ideter(2)=1
-    ideter(natom)=2
+    ideter(natom)=3
 
     call adr(ideter,add)
     write(6,*)(ideter(i),i=1,natom)
