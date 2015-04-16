@@ -5,15 +5,16 @@ subroutine searchdet(det,add,deth,addh)
     ! then find the posistion of the determinant given and
     ! return it's position in add.
     END_DOC
-    integer,INTENT(INOUT)::det
-    integer,INTENT(INOUT)::add
-    integer,INTENT(INOUT)::deth
-    integer,INTENT(INOUT)::addh
-    integer::i,a,const
+    integer(kind=selected_int_kind(16)),INTENT(INOUT)::det
+    integer(kind=selected_int_kind(16)),INTENT(INOUT)::add
+    integer(kind=selected_int_kind(16)),INTENT(INOUT)::deth
+    integer(kind=selected_int_kind(16)),INTENT(INOUT)::addh
+    integer(kind=selected_int_kind(16))::a
+    integer(kind=selected_int_kind(16))::i
+    integer::const
     i=1
     a=0
     add=0
-    print *,"enter"
     const=0
 
     If(ntrou.ge.1)then
@@ -25,7 +26,6 @@ subroutine searchdet(det,add,deth,addh)
             do while (i.le.(nt1))
                 if(a.eq.deth)then
                     addh=i-2
-                    print *,"leave",addh,ah
                     EXIT
                 endif
 
@@ -56,11 +56,9 @@ subroutine searchdet(det,add,deth,addh)
             if(a.eq.1)then
                add=i
                count=-1
-               print *,"le",add,a
                EXIT
             else
                add=i
-               print *,"le",add,a
                count=-1
                EXIT
             endif
@@ -77,7 +75,7 @@ subroutine searchdet(det,add,deth,addh)
     if(a.eq.det .and. count.ne.-1)then
     add=i-1
     endif
-    
+
 
 10  FORMAT(B64,I8,F8.2)
 15  FORMAT(B64,I8,I8,I8)

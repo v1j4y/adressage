@@ -7,37 +7,26 @@ subroutine adr(ideter,add)
     ! matches the given determinant.
     END_DOC
     integer,INTENT(INOUT)::ideter(natom)
-    integer,INTENT(INOUT)::add
-    integer::det,i,deth,addh,detnew,count
+    integer(kind=selected_int_kind(16)),INTENT(INOUT)::add
+    integer(kind=selected_int_kind(16))::det,i,deth,addh,detnew
+    integer::count
 
     det=0
     detnew=0
     deth=0
     count=0
     call conv(ideter,det,deth)
-    print *,'---'
     Do i=0,natom-1
         if(BTEST(deth,i))then
             count=count+1
-            print *,count,i
         endif
         if(BTEST(det,i))then
             detnew=IBSET(detnew,i-count)
-            print *,'-',count,i
         endif
     enddo
     det=detnew
-    write(6,14)det,det
-    write(6,14)deth,deth
-    print *,'---'
     call searchdet(det,add,deth,addh)
-    print *,'---'
-    write(6,16)det,det,add
-    write(6,16)deth,deth,addh
-    print *,'---'
-    print *,add,(nt1-addh)*nt2
     add = add + (nt1-addh)*(nt2)
-    print *,add,(nt1-addh+1)
 
 
 10  FORMAT(B64,I8,F8.2)
@@ -45,6 +34,6 @@ subroutine adr(ideter,add)
 11  FORMAT(B64,I3,B64)
 12  FORMAT(I5,$)
 13  FORMAT(B64,B64)
-14  FORMAT(B64,I8)
-16  FORMAT(B64,I8,I8)
+14  FORMAT(B64,I14)
+16  FORMAT(B64,I14,I14)
 end

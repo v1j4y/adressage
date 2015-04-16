@@ -6,22 +6,18 @@ program adress
     END_DOC
 
     integer,allocatable::ideter(:)
-    integer::i,add
+    integer(kind=selected_int_kind(16))::add
+    integer::i
 
     allocate(ideter(natom))
 
     ideter=1
-    ideter(1)=1
-    ideter(2)=2
-    ideter(3)=1
-    ideter(4)=3
-    ideter(5)=3
-    ideter(6)=3
-!C  do i=natom/2+1,natom
-!C  ideter(i)=2
-!C  enddo
-!C  ideter(natom)=1
-!C  ideter(1)=2
+    do i=natom/2+2,natom
+    ideter(i)=2
+    enddo
+    ideter(1)=3
+    ideter(2)=1
+    ideter(natom)=2
 
     call adr(ideter,add)
     write(6,*)(ideter(i),i=1,natom)
